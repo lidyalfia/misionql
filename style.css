@@ -1,0 +1,274 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  padding-top: 70px;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 50pt;
+  font-weight: bold;
+  margin: 2cm 0 1cm;
+}
+
+.main-title span.blue {
+  color: #00bfe8;
+}
+
+.responsive-box {
+  max-width: 80%;
+  margin: 0 auto 2cm auto;
+}
+
+.carousel,
+.card {
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 10pt;
+}
+
+.link-box {
+  background-color: white;
+  color: #00bfe8;
+  font-weight: bold;
+  padding: 7px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.link-box:hover {
+  background-color: #e0f7ff;
+  color: #324468;
+}
+
+button {
+  color: #324468;
+}
+
+.list-group-item {
+  cursor: pointer;
+  font-size: 13pt;
+}
+
+.collapse .p-2 {
+  font-size: 13pt;
+}
+
+.navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card,
+.list-group-item,
+.collapse .p-2 {
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+.list-group-item:hover {
+  background-color: #2a2a2a;
+  color: #00bfe8;
+}
+
+.active-item {
+  background-color: #324468 !important;
+  color: white !important;
+}
+
+#carouselExampleIndicators {
+  border: none;
+  padding: 0;
+}
+
+#carouselExampleIndicators img {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Game-specific styles */
+h1.game-title,
+h2 {
+  color: #00bcd4;
+}
+
+.description {
+  max-width: 700px;
+  margin: 10px auto 30px;
+}
+
+.scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 100px); /* Max columns from all games */
+  gap: 10px;
+  justify-content: center;
+  background: #333;
+  padding: 20px;
+  width: max-content;
+  margin: auto;
+}
+
+.cell {
+  width: 100px;
+  height: 50px;
+  background: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.cell.enabled {
+  background: #007b8a;
+}
+
+.cell.disabled {
+  background: #444;
+  pointer-events: none;
+}
+
+.cell.drag-over {
+  background: #00acc1;
+}
+
+.cell.merged {
+  grid-column: span 2;
+  width: 210px; /* 2 * 100 + 10 gap */
+}
+
+.draggable {
+  background: #007b8a;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  cursor: grab;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  touch-action: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.draggables {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+.nav-button {
+  font-size: 24px;
+  background: none;
+  color: #00bcd4;
+  border: none;
+  cursor: pointer;
+}
+
+#score {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.data-table {
+  max-width: 700px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px;
+  border: 1px solid #555;
+  text-align: center;
+}
+
+.data-table th {
+  background: #007b8a;
+  color: #fff;
+  font-weight: bold;
+}
+
+.data-table td {
+  background: #444;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .responsive-box {
+    max-width: 95%;
+  }
+
+  .main-title {
+    font-size: 28pt;
+  }
+
+  .grid {
+    justify-content: start;
+  }
+
+  .data-table {
+    max-width: 95%;
+  }
+
+  .cell {
+    width: 80px;
+    height: 40px;
+    font-size: 10pt;
+  }
+
+  .cell.merged {
+    width: 170px; /* 2 * 80 + 10 gap */
+  }
+
+  .draggable {
+    padding: 8px;
+    font-size: 10pt;
+  }
+
+  .button-container button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .nav-button {
+    font-size: 20px;
+  }
+}

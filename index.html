@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MissionQL - Learn MySQL and Play SQL Puzzle</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://i.imgur.com/x4hjon7.png" alt="" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="btn btn-sm m-1 text-white"
+                style="background-color: #324468"
+                href="#carouselExampleIndicators"
+                >Beranda</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-sm m-1 text-white"
+                style="background-color: #324468"
+                href="#materi"
+                >Belajar</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-sm m-1 text-white"
+                style="background-color: #324468"
+                href="#game-section"
+                >▶ Bermain</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Title -->
+    <div class="main-title">
+      Asah Logika,
+      <span class="blue">Kuasai Data<br />Belajar MySQL</span> dengan Ceria.
+      <br /><br />
+    </div>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide responsive-box">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://i.imgur.com/5WnC9D0.jpeg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://i.imgur.com/SBTCyP6.jpeg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://i.imgur.com/gjbL9NQ.jpeg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Card Materi -->
+    <div id="materi" class="card responsive-box">
+      <div class="card-body">
+        <h5 class="card-title">Materi MySQL</h5>
+        <h5 class="card-text">
+          MySQL adalah sistem manajemen basis data relasional (RDBMS) yang
+          bersifat open-source dan menggunakan bahasa SQL (Structured Query
+          Language) untuk mengelola data. MySQL banyak digunakan dalam aplikasi
+          web dan dikembangkan oleh Oracle Corporation. Berikut adalah beberapa
+          materi dasar untuk memahami dan menggunakan MySQL:
+        </h5>
+      </div>
+      <ul class="list-group">
+        <!-- Membuat Tabel -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi1"
+        >
+          Membuat Tabel di MySQL
+        </li>
+        <div class="collapse" id="materi1">
+          <div class="p-2">
+            Untuk membuat tabel di MySQL, kita menggunakan perintah
+            <code>CREATE TABLE</code>. Perintah ini digunakan untuk
+            mendefinisikan struktur tabel termasuk nama kolom, tipe data, serta
+            batasan lainnya seperti primary key, NOT NULL, atau AUTO_INCREMENT.
+            <br /><br /><strong>Contoh Sintaks:</strong>
+            <pre><code>CREATE TABLE penjualan (
+              id INT PRIMARY KEY,
+              nama_produk VARCHAR(100),
+              harga_produk INT,
+              keterangan VARCHAR(100)
+              );</code></pre>
+            - <code>id</code>: kolom bertipe integer, akan bertambah otomatis
+            setiap entri baru. - <code>nama_produk</code>: teks maksimal 100
+            karakter. - <code>harga_produk</code>: bertipe integer. -
+            <code>keterangan</code>: teks pendek (maksimal 100 karakter).
+            <br /><br />Perlu diingat, setiap tabel sebaiknya memiliki PRIMARY
+            KEY untuk membedakan setiap baris data secara unik.
+          </div>
+        </div>
+        <!-- Memasukkan Data -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi2"
+        >
+          Memasukkan Data ke MySQL
+        </li>
+        <div class="collapse" id="materi2">
+          <div class="p-2">
+            Setelah membuat tabel, kita bisa menambahkan data dengan perintah
+            <code>INSERT INTO</code>. Terdapat dua format umum:
+            <br /><br /><strong
+              >1. Menyebut semua kolom secara berurutan:</strong
+            >
+            <pre><code>INSERT INTO penjualan VALUES ('1', 'iPhone 11 Promag', 17000000, 'Second');</code></pre>
+            <strong>2. Menyebut kolom secara eksplisit:</strong>
+            <pre><code>INSERT INTO penjualan (id, nama_produk, harga_produk, keterangan)
+              VALUES (1, 'iPhone 11 Promag', 17000000, 'Second');</code></pre>
+            - Gunakan <code>NULL</code> untuk kolom yang AUTO_INCREMENT jika
+            tidak menyebutkannya langsung. - Untuk banyak data, gunakan:
+            <pre><code>INSERT INTO penjualan (id, nama_produk, harga_produk, keterangan) VALUES
+              (1, 'iPhone 11 Promag', 17000000, 'Second'),
+              (2, 'Oddo Reno 5', 1700000, 'New'),
+              (3, 'Samsung S25 Ultramilk', 20000000, 'Kredit'),
+              (4, 'Semen Gresik', 100000, 'Preloved');</code></pre>
+          </div>
+        </div>
+        <!-- GROUP BY & Agregat -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi3"
+        >
+          GROUP BY dan Fungsi Agregat
+        </li>
+        <div class="collapse" id="materi3">
+          <div class="p-2">
+            Fungsi agregat digunakan untuk melakukan perhitungan statistik pada
+            data, seperti menghitung jumlah, rata-rata, maksimum, dan
+            sebagainya.
+            <br /><br /><strong>Fungsi Umum:</strong> - <code>COUNT()</code>:
+            Menghitung jumlah data. - <code>SUM()</code>: Menjumlahkan nilai
+            kolom. - <code>AVG()</code>: Menghitung rata-rata. -
+            <code>MIN()</code> dan <code>MAX()</code>: Nilai terkecil dan
+            terbesar. <br /><br /><strong>Contoh Penggunaan:</strong>
+            <pre><code>SELECT SUM(harga_produk) AS total
+              FROM penjualan;
+          </code></pre>
+            Hasil query di atas akan menampilkan hasil penjumlahan seluruh
+            harga_produk pada tabel penjualan dan akan ditampilkan sebagai
+            "total" pada kolom hasil penjumlahan.
+            <br /><br /><strong>Menambahkan Penyaringan dengan HAVING:</strong>
+            <pre><code>SELECT kelas, COUNT(*) AS jumlah
+              FROM siswa
+              GROUP BY kelas
+              HAVING jumlah > 2;</code></pre>
+            <strong>NOTE:</strong> <code>WHERE</code> digunakan untuk menyaring
+            sebelum agregat, sedangkan <code>HAVING</code> setelah.
+          </div>
+        </div>
+        <!-- JOIN -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi4"
+        >
+          JOIN dalam MySQL
+        </li>
+        <div class="collapse" id="materi4">
+          <div class="p-2">
+            JOIN digunakan untuk menggabungkan data dari dua atau lebih tabel
+            berdasarkan kolom yang berhubungan.
+            <br /><br /><strong>Jenis JOIN:</strong> - <code>INNER JOIN</code>:
+            Mengambil data yang cocok di kedua tabel. - <code>LEFT JOIN</code>:
+            Mengambil semua data dari tabel kiri, dan data yang cocok dari tabel
+            kanan. - <code>RIGHT JOIN</code>: Kebalikan dari LEFT JOIN. -
+            <code>FULL JOIN</code>: Gabungan dari LEFT dan RIGHT JOIN (tidak
+            langsung didukung MySQL, bisa disimulasikan). <br /><br /><strong
+              >Contoh:</strong
+            >
+            Misalkan ada tabel <code>siswa</code> dan <code>kelas</code>:
+            <pre><code>SELECT siswa.nama, kelas.nama_kelas
+              FROM siswa
+              INNER JOIN kelas ON siswa.kelas = kelas.id;</code></pre>
+            Query di atas akan menampilkan nama siswa beserta nama kelas dari
+            tabel lain yang cocok.
+          </div>
+        </div>
+        <!-- SUBQUERY -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi5"
+        >
+          SUBQUERY dalam MySQL
+        </li>
+        <div class="collapse" id="materi5">
+          <div class="p-2">
+            SUBQUERY adalah query di dalam query lainnya. Biasanya digunakan di
+            bagian SELECT, FROM, atau WHERE.
+            <br /><br /><strong>Contoh:</strong> Menampilkan siswa yang
+            mendaftar paling awal:
+            <pre><code>
+            SELECT * 
+            FROM siswa
+            WHERE tanggal_daftar = (SELECT MIN(tanggal_daftar) FROM siswa);</code></pre>
+            <strong>Jenis SUBQUERY:</strong>
+            - Dalam <code>SELECT</code>: untuk nilai tambahan. - Dalam
+            <code>WHERE</code>: sebagai filter. - Dalam <code>FROM</code>:
+            sebagai tabel sementara (alias). <br /><br /><strong
+              >Catatan:</strong
+            >
+            SUBQUERY harus menghasilkan 1 nilai jika digunakan dalam
+            perbandingan langsung (=, >, <, dsb).
+          </div>
+        </div>
+        <!-- VIEW -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi6"
+        >
+          VIEW dalam MySQL
+        </li>
+        <div class="collapse" id="materi6">
+          <div class="p-2">
+            VIEW adalah tabel virtual yang berisi hasil dari query. VIEW
+            menyederhanakan query kompleks dan meningkatkan keamanan data.
+            <br /><br /><strong>Membuat VIEW:</strong>
+            <pre><code>CREATE VIEW daftar_siswa AS
+              SELECT nama, kelas FROM siswa
+              WHERE umur > 15;</code></pre>
+            <strong>Menggunakan VIEW:</strong>
+            <pre><code>SELECT * FROM daftar_siswa;</code></pre>
+            <strong>Menghapus VIEW:</strong>
+            <pre><code>DROP VIEW daftar_siswa;</code></pre>
+            <br /><strong>Kelebihan VIEW:</strong>
+            - Menyederhanakan query yang rumit - Meningkatkan keamanan (tidak
+            semua kolom ditampilkan) - Mudah diakses layaknya tabel biasa
+            <br /><strong>Catatan:</strong> VIEW tidak menyimpan data, hanya
+            menyimpan struktur query.
+          </div>
+        </div>
+        <!-- NOT, dan LIMIT -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi7"
+        >
+          NOT dan LIMIT dalam MySQL
+        </li>
+        <div class="collapse" id="materi7">
+          <div class="p-2">
+            <br /><br /><strong>NOT:</strong><br />
+            Operator <code>NOT</code> digunakan untuk menegasikan kondisi dalam
+            query, misalnya untuk mengambil data yang tidak memenuhi kriteria
+            tertentu. <br /><br /><strong>Contoh:</strong>
+            <pre><code>
+              SELECT * FROM siswa
+              WHERE NOT kelas = 'XI IPA';</code></pre>
+            Query ini akan menampilkan semua siswa yang <b>tidak</b> berada di
+            kelas 'XI IPA'. <code>NOT</code> juga bisa digunakan dengan operator
+            lain seperti <code>NOT IN</code> atau <code>NOT LIKE</code>.
+            <pre><code>
+              SELECT * FROM siswa
+              WHERE nama NOT LIKE 'A%';</code></pre>
+            Query ini mengambil siswa yang namanya tidak diawali huruf 'A'.
+            <br /><br /><strong>LIMIT:</strong><br />
+            Perintah <code>LIMIT</code> digunakan untuk membatasi jumlah baris
+            yang dikembalikan oleh query, sangat berguna untuk pagination atau
+            hanya melihat sebagian data. <br /><br /><strong>Contoh:</strong>
+            <pre><code>
+              SELECT * FROM siswa
+              LIMIT 3;</code></pre>
+            Query ini hanya akan menampilkan 3 baris pertama dari hasil query.
+            Anda juga bisa menggunakan <code>LIMIT</code> dengan offset untuk
+            melewati beberapa baris:
+            <pre><code>
+              SELECT * FROM siswa
+              LIMIT 2, 3;</code></pre>
+            Query ini akan melewati 2 baris pertama dan mengambil 3 baris
+            berikutnya (baris ke-3 hingga ke-5).
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Game Section -->
+    <div id="game-section" class="responsive-box">
+      <br />
+      <br />
+      <h1 class="game-title">SQL Puzzle<br />Drag & Drop</h1>
+      <br />
+      <br />
+      <br />
+      <div class="description" id="description"></div>
+
+      <!-- Name Input Form -->
+      <div
+        id="nameForm"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        "
+      >
+        <h2>Masukkan namamu!</h2>
+        <input
+          type="text"
+          id="playerName"
+          placeholder="Nama kamu..."
+          style="padding: 10px; border-radius: 5px; width: 250px; margin: 10px"
+        />
+        <button onclick="submitName()">Kirim</button>
+      </div>
+
+      <div id="gameContainer" style="display: none">
+        <div id="data-table-container"></div>
+        <div class="scroll-container">
+          <div class="grid" id="grid"></div>
+        </div>
+        <div class="draggables" id="draggables"></div>
+        <div class="button-container">
+          <button onclick="checkAnswer()">CEK JAWABAN</button>
+          <button onclick="resetGame()">RESET</button>
+          <button
+            class="nav-button"
+            onclick="nextLevel()"
+            id="nextButton"
+            disabled
+          >
+            ❯
+          </button>
+        </div>
+        <div id="score"></div>
+      </div>
+    </div>
+
+    <!-- Combined Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      const SUPABASE_URL = "https://ssodjtmjwlvbprlecrrj.supabase.co";
+      const SUPABASE_ANON_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzb2RqdG1qd2x2YnBybGVjcnJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYxNzg5MDAsImV4cCI6MjA3MTc1NDkwMH0.N8brL_NYDbBs_WDxTOryXp91rQ2eUN3Snh8mcqTRda4";
+      const { createClient } = supabase;
+      const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      let currentLevel = 0;
+      let playerName = "";
+      let totalErrors = 0; // To accumulate errors across all levels
+      let levelCompleted = false; // Track if current level is completed
+      let completedLevels = new Set(); // Track completed levels
+      let isScorePopupActive = false; // Flag to track popup status
+
+      async function submitName() {
+        playerName = document.getElementById("playerName").value.trim();
+        if (!playerName) {
+          alert("Silakan masukkan nama terlebih dahulu!");
+          return;
+        }
+
+        // Simpan nama ke tabel missionql
+        const { data, error } = await client
+          .from("missionql")
+          .insert([{ nama: playerName, skor: 0 }]);
+
+        if (error) {
+          console.error(
+            "Gagal simpan ke Supabase:",
+            error.message,
+            error.details,
+            error.code
+          );
+          alert(`Terjadi kesalahan saat menyimpan nama: ${error.message}`);
+          return;
+        }
+
+        console.log("Data tersimpan:", data);
+
+        // Hide name form and show game container
+        document.getElementById("nameForm").style.display = "none";
+        document.getElementById("gameContainer").style.display = "block";
+
+        // Initialize the game
+        currentLevel = 0;
+        loadLevel(currentLevel);
+        updateButtons();
+        try {
+          createGrid();
+          initDraggables();
+          document.getElementById("description").innerHTML =
+            levels[currentLevel].description;
+          document.getElementById("data-table-container").innerHTML =
+            levels[currentLevel].tableData || "";
+        } catch (err) {
+          console.error("Error initializing game:", err);
+          alert("Terjadi kesalahan saat memulai game. Silakan coba lagi.");
+        }
+      }
+
+      function nextLevel() {
+        if (currentLevel < levels.length - 1 && levelCompleted) {
+          currentLevel++;
+          levelCompleted = false; // Reset for new level
+          loadLevel(currentLevel);
+        } else if (!levelCompleted && currentLevel < levels.length - 1) {
+          alert("Selesaikan level ini dan klik 'Cek Jawaban' terlebih dahulu!");
+        } else if (currentLevel === levels.length - 1 && levelCompleted) {
+          showScorePopup();
+        }
+        updateButtons();
+      }
+
+      function updateButtons() {
+        document.getElementById("nextButton").disabled =
+          currentLevel === levels.length - 1 && !levelCompleted;
+      }
+
+      function loadLevel(level) {
+        if (!isScorePopupActive) {
+          // Only load level if popup is not active
+          const levelData = levels[level];
+          document.getElementById("description").innerHTML =
+            levelData.description;
+          document.getElementById("data-table-container").innerHTML =
+            levelData.tableData || "";
+          resetGame();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const collapses = document.querySelectorAll(".collapse");
+
+        collapses.forEach((collapse) => {
+          collapse.addEventListener("show.bs.collapse", function () {
+            const targetBtn = document.querySelector(
+              `[data-bs-target="#${this.id}"]`
+            );
+            if (targetBtn) {
+              targetBtn.classList.add("active-item");
+            }
+          });
+
+          collapse.addEventListener("hide.bs.collapse", function () {
+            const targetBtn = document.querySelector(
+              `[data-bs-target="#${this.id}"]`
+            );
+            if (targetBtn) {
+              targetBtn.classList.remove("active-item");
+            }
+          });
+        });
+      });
+
+      // Game Functionality
+      const levels = [
+        {
+          description:
+            "Saya ingin membuat tabel yang bernama <b>siswa</b>. Dalam tabel siswa, ada 4 kolom yaitu <b>id</b> dengan tipe data integer dan unik (primary key), <b>nama</b> dengan tipe data varchar dengan panjang variabel 100, <b>umur</b> dengan tipe data integer, dan <b>kelas</b> dengan tipe data varchar dengan panjang variabel 100.",
+          layout: [
+            ["CREATE", "TABLE", "siswa", "(", ""],
+            ["", "id", "INT", "PRIMARY", "KEY"],
+            ["", "nama", "VARCHAR", "(100),", ""],
+            ["", "umur", "INT,", "", ""],
+            ["", "Kelas", "VARCHAR", "(100)", ");"],
+          ],
+          disabledCells: [],
+          mergedCells: [],
+          tableData: null,
+        },
+        {
+          description:
+            "Saya ingin membuat perintah <b>INSERT INTO</b> pada tabel <b>siswa</b>. Tabel tersebut memiliki kolom <b>id, nama, umur, kelas</b>. Lihat tabel di bawah ini lalu susunlah membentuk query yang benar",
+          layout: [
+            [
+              "INSERT",
+              "INTO",
+              "siswa",
+              "(id,",
+              "nama,",
+              "umur,",
+              "kelas)",
+              "VALUES",
+            ],
+            ["", "", "", "(1,", "'Adi',", "17,", "'XI RA'),", ""],
+            ["", "", "", "(2,", "'Budi',", "18,", "'XI RB'),", ""],
+            ["", "", "", "(3,", "'Cinta',", "16,", "'XI RC'),", ""],
+            ["", "", "", "(4,", "'Denis',", "17,", "'XI RD'),", ";"],
+          ],
+          disabledCells: [],
+          mergedCells: [],
+          tableData: `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>nama</th>
+              <th>umur</th>
+              <th>kelas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Adi</td>
+              <td>17</td>
+              <td>XI RA</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Budi</td>
+              <td>18</td>
+              <td>XI RB</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Cinta</td>
+              <td>16</td>
+              <td>XI RC</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Denis</td>
+              <td>17</td>
+              <td>XI RD</td>
+            </tr>
+          </tbody>
+        </table>
+      `,
+        },
+        {
+          description:
+            "Saya ingin membuat perintah untuk mengetahui <b>rata-rata umur</b> pada tabel <b>siswa</b>. Beri nama baru pada kolom hasil perhitungan rata-rata umur siswa tersebut sebagai <b>rata-rata</b>.",
+          layout: [
+            ["SELECT", "AVG", "(umur)", "AS", "rata_rata"],
+            ["FROM", "siswa", ";", "", ""],
+          ],
+          disabledCells: [
+            [1, 3],
+            [1, 4],
+          ],
+          mergedCells: [],
+          tableData: null,
+        },
+        {
+          description:
+            "Saya ingin mengetahui <b>siswa yang memiliki umur paling tinggi</b> pada tabel <b>siswa</b>.",
+          layout: [
+            ["SELECT", "*", "", "", "", "", "", "", ""],
+            ["FROM", "siswa", "", "", "", "", "", "", ""],
+            [
+              "WHERE",
+              "umur",
+              "=",
+              "(SELECT",
+              "MAX",
+              "(umur)",
+              "FROM",
+              "siswa)",
+              ";",
+            ],
+          ],
+          disabledCells: [
+            [0, 2],
+            [0, 3],
+            [0, 4],
+            [0, 5],
+            [0, 6],
+            [0, 7],
+            [0, 8],
+            [1, 2],
+            [1, 3],
+            [1, 4],
+            [1, 5],
+            [1, 6],
+            [1, 7],
+            [1, 8],
+          ],
+          mergedCells: [],
+          tableData: null,
+        },
+        {
+          description:
+            "Saya ingin membuat perintah untuk menampilkan data dari tabel siswa <b>yang bukan umur 17</b>.",
+          layout: [
+            ["SELECT", "*", "FROM", "siswa", "", ""],
+            ["WHERE", "NOT", "umur", "=", "'17'", ";"],
+          ],
+          disabledCells: [
+            [0, 4],
+            [0, 5],
+          ],
+          mergedCells: [],
+          tableData: null,
+        },
+      ];
+
+      let answer = [];
+      let touchItem = null;
+      let isDragging = false;
+
+      const grid = document.getElementById("grid");
+      const draggables = document.getElementById("draggables");
+      const description = document.getElementById("description");
+      const dataTableContainer = document.getElementById(
+        "data-table-container"
+      );
+      const scoreDisplay = document.getElementById("score");
+      const nameForm = document.getElementById("nameForm");
+      const gameContainer = document.getElementById("gameContainer");
+
+      function createGrid() {
+        const level = levels[currentLevel];
+        grid.innerHTML = "";
+        grid.style.gridTemplateColumns = `repeat(${level.layout[0].length}, 100px)`;
+        level.layout.forEach((row, rowIndex) => {
+          row.forEach((cell, colIndex) => {
+            const div = document.createElement("div");
+            div.classList.add("cell");
+
+            const isDisabled = level.disabledCells.some(
+              ([r, c]) => r === rowIndex && c === colIndex
+            );
+            if (
+              cell !== "" &&
+              !isDisabled &&
+              !completedLevels.has(currentLevel)
+            ) {
+              div.classList.add("enabled");
+
+              div.ondragover = (e) => {
+                e.preventDefault();
+                if (!div.textContent) div.classList.add("drag-over");
+              };
+              div.ondragleave = () => div.classList.remove("drag-over");
+              div.ondrop = (e) => {
+                e.preventDefault();
+                const id = e.dataTransfer.getData("text/plain");
+                const dragged = document.getElementById(id);
+                if (!div.textContent && dragged) {
+                  div.textContent = dragged.textContent;
+                  div.classList.remove("drag-over");
+                  dragged.remove();
+                }
+              };
+
+              div.addEventListener("click", () => {
+                if (div.textContent) {
+                  const word = div.textContent;
+                  div.textContent = "";
+                  createDraggable(word);
+                }
+              });
+
+              let touchStartTime = 0;
+              let touchStartX = 0;
+              let touchStartY = 0;
+
+              div.addEventListener("touchstart", (e) => {
+                e.preventDefault();
+                touchStartTime = Date.now();
+                const touch = e.touches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+                if (!div.textContent && touchItem) {
+                  div.classList.add("drag-over");
+                }
+              });
+
+              div.addEventListener("touchmove", (e) => {
+                const touch = e.touches[0];
+                const deltaX = Math.abs(touch.clientX - touchStartX);
+                const deltaY = Math.abs(touch.clientY - touchStartY);
+                if (deltaX > 10 || deltaY > 10) {
+                  isDragging = true;
+                }
+              });
+
+              div.addEventListener("touchend", (e) => {
+                e.preventDefault();
+                div.classList.remove("drag-over");
+                const touchDuration = Date.now() - touchStartTime;
+                if (!isDragging && touchDuration < 300 && div.textContent) {
+                  const word = div.textContent;
+                  div.textContent = "";
+                  createDraggable(word);
+                }
+                isDragging = false;
+              });
+            } else {
+              div.classList.add("disabled");
+            }
+
+            level.mergedCells.forEach((merge) => {
+              if (rowIndex === merge.row && colIndex === merge.col) {
+                div.classList.add("merged");
+              }
+            });
+
+            grid.appendChild(div);
+          });
+        });
+      }
+
+      function createDraggable(word, id) {
+        const span = document.createElement("span");
+        span.className = "draggable";
+        span.textContent = word;
+        span.id = id || `word-${Math.random().toString(36).substr(2, 9)}`;
+
+        span.draggable = !completedLevels.has(currentLevel);
+        span.ondragstart = (e) => {
+          if (!completedLevels.has(currentLevel)) {
+            e.dataTransfer.setData("text/plain", span.id);
+          }
+        };
+
+        let startX = 0,
+          startY = 0;
+        let offsetX = 0,
+          offsetY = 0;
+
+        span.addEventListener("touchstart", (e) => {
+          if (completedLevels.has(currentLevel)) return;
+          e.preventDefault();
+          touchItem = span;
+          isDragging = false;
+          const touch = e.touches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+          const rect = span.getBoundingClientRect();
+          offsetX = startX - rect.left;
+          offsetY = startY - rect.top;
+          span.style.position = "fixed";
+          span.style.left = `${rect.left}px`;
+          span.style.top = `${rect.top}px`;
+          span.style.zIndex = "1000";
+        });
+
+        span.addEventListener("touchmove", (e) => {
+          if (completedLevels.has(currentLevel)) return;
+          e.preventDefault();
+          const touch = e.touches[0];
+          const deltaX = Math.abs(touch.clientX - startX);
+          const deltaY = Math.abs(touch.clientY - startY);
+          if (deltaX > 10 || deltaY > 10) {
+            isDragging = true;
+          }
+          const newX = touch.clientX - offsetX;
+          const newY = touch.clientY - offsetY;
+          span.style.left = `${newX}px`;
+          span.style.top = `${newY}px`;
+        });
+
+        span.addEventListener("touchend", (e) => {
+          if (completedLevels.has(currentLevel)) return;
+          e.preventDefault();
+          span.style.visibility = "hidden";
+          const touch = e.changedTouches[0];
+          const target = document.elementFromPoint(
+            touch.clientX,
+            touch.clientY
+          );
+          span.style.visibility = "visible";
+          if (
+            isDragging &&
+            target &&
+            target.classList.contains("cell") &&
+            target.classList.contains("enabled") &&
+            !target.textContent
+          ) {
+            target.textContent = span.textContent;
+            target.classList.remove("drag-over");
+            span.remove();
+            touchItem = null;
+          } else {
+            span.style.position = "relative";
+            span.style.left = "auto";
+            span.style.top = "auto";
+            span.style.zIndex = "1";
+            touchItem = null;
+          }
+          isDragging = false;
+        });
+
+        draggables.appendChild(span);
+      }
+
+      function initDraggables() {
+        draggables.innerHTML = "";
+        answer = levels[currentLevel].layout
+          .flat()
+          .filter((cell) => cell !== "");
+        answer
+          .sort(() => 0.5 - Math.random())
+          .forEach((word) => createDraggable(word));
+      }
+
+      async function checkAnswer() {
+        const cells = [...document.querySelectorAll(".cell")];
+        const flatLayout = levels[currentLevel].layout.flat();
+        let salah = 0;
+
+        // Check if all cells are filled
+        const emptyCells = cells.filter(
+          (cell) =>
+            !cell.classList.contains("disabled") &&
+            !cell.textContent.trim() &&
+            !levels[currentLevel].disabledCells.some(
+              ([r, c]) =>
+                r === Math.floor(cells.indexOf(cell) / flatLayout.length) &&
+                c === cells.indexOf(cell) % flatLayout.length
+            )
+        );
+        if (emptyCells.length > 0) {
+          alert("Susun semua puzzle hingga benar-benar rampung!");
+          return;
+        }
+
+        cells.forEach((cell, index) => {
+          const expected = flatLayout[index];
+          const isDisabled =
+            expected === "" || cell.classList.contains("disabled");
+          const val = cell.textContent.trim();
+
+          if (!isDisabled) {
+            if (val !== expected) salah++;
+          }
+        });
+
+        totalErrors += salah; // Accumulate errors
+        levelCompleted = true; // Mark level as completed
+        completedLevels.add(currentLevel); // Add to completed levels
+
+        // Create correct answer display
+        const correctAnswerDiv = document.createElement("div");
+        correctAnswerDiv.style.marginTop = "20px";
+        correctAnswerDiv.style.color = "#00bcd4";
+        correctAnswerDiv.style.fontWeight = "bold";
+        correctAnswerDiv.textContent = `Jawaban Benar: ${flatLayout
+          .filter((cell) => cell !== "")
+          .join(" ")}`;
+
+        // Clear previous correct answer display
+        const existingCorrectAnswer = document.getElementById("correctAnswer");
+        if (existingCorrectAnswer) {
+          existingCorrectAnswer.remove();
+        }
+
+        if (salah === 0) {
+          alert("✅ Jawaban Benar!");
+        } else {
+          alert(`❌ Jawaban Salah (${salah} kesalahan).`);
+          correctAnswerDiv.id = "correctAnswer";
+          grid.insertAdjacentElement("afterend", correctAnswerDiv);
+        }
+
+        updateButtons(); // Update button states
+      }
+
+      function resetGame() {
+        createGrid();
+        initDraggables();
+        scoreDisplay.textContent = "";
+        const existingCorrectAnswer = document.getElementById("correctAnswer");
+        if (existingCorrectAnswer) {
+          existingCorrectAnswer.remove();
+        }
+      }
+
+      async function showScorePopup() {
+        // Set flag popup aktif
+        isScorePopupActive = true;
+
+        // Forcefully hide entire game section
+        const gameSection = document.getElementById("game-section");
+        const desc = document.getElementById("description");
+        desc.style.display = "none !important"; // Override CSS
+        desc.style.visibility = "hidden"; // Prevent rendering
+        desc.style.position = "absolute"; // Remove from layout
+
+        gameSection.style.display = "none !important"; // Override CSS
+        gameSection.style.visibility = "hidden"; // Prevent rendering
+        gameSection.style.position = "absolute"; // Remove from layout
+        gameSection.style.left = "-9999px"; // Move off-screen
+        gameSection.style.opacity = "0"; // Additional visual hide
+        gameSection.setAttribute("aria-hidden", "true"); // Accessibility hide
+
+        // Remove any inline styles that might interfere
+        gameSection.removeAttribute("style"); // Reset first
+        gameSection.style.display = "none !important"; // Reapply with priority
+
+        // Create popup container
+        const popup = document.createElement("div");
+        popup.style.position = "fixed";
+        popup.style.top = "50%";
+        popup.style.left = "50%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.backgroundColor = "#4a4a4a";
+        popup.style.color = "#00bcd4";
+        popup.style.padding = "20px";
+        popup.style.borderRadius = "10px";
+        popup.style.textAlign = "center";
+        popup.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
+        popup.style.width = "300px";
+        popup.style.zIndex = "1000";
+
+        // Add title
+        const title = document.createElement("h2");
+        title.textContent = "Selamat! Skor Anda";
+        title.style.margin = "0 0 10px";
+        popup.appendChild(title);
+
+        // Add score display
+        const scoreBox = document.createElement("div");
+        scoreBox.style.backgroundColor = "#666";
+        scoreBox.style.padding = "15px";
+        scoreBox.style.borderRadius = "5px";
+        scoreBox.style.marginBottom = "20px";
+        scoreBox.style.border = "1px solid #00bcd4";
+        const scoreText = document.createElement("span");
+        scoreText.textContent = "";
+        scoreText.style.fontSize = "24px";
+        scoreText.style.fontWeight = "bold";
+        scoreBox.appendChild(scoreText);
+        popup.appendChild(scoreBox);
+
+        // Add "Main Lagi" button
+        const playAgainBtn = document.createElement("button");
+        playAgainBtn.textContent = "Main Lagi";
+        playAgainBtn.style.padding = "10px 20px";
+        playAgainBtn.style.fontSize = "16px";
+        playAgainBtn.style.fontWeight = "bold";
+        playAgainBtn.style.backgroundColor = "#00bcd4";
+        playAgainBtn.style.color = "white";
+        playAgainBtn.style.border = "none";
+        playAgainBtn.style.borderRadius = "5px";
+        playAgainBtn.style.cursor = "pointer";
+        playAgainBtn.onclick = () => {
+          // Reset game state
+          currentLevel = 0;
+          totalErrors = 0;
+          levelCompleted = false;
+          completedLevels.clear();
+
+          // Hide popup and overlay
+          const popup = document.querySelector(".popup");
+          const overlay = document.querySelector(".overlay");
+          if (popup) document.body.removeChild(popup);
+          if (overlay) document.body.removeChild(overlay);
+
+          // Restore game section and reset states
+          gameSection.style.display = "block";
+          gameSection.style.visibility = "visible";
+          gameSection.style.position = "relative";
+          gameSection.style.left = "0";
+          gameSection.style.opacity = "1";
+          gameSection.removeAttribute("aria-hidden");
+          document.getElementById("nameForm").style.display = "flex";
+          document.getElementById("gameContainer").style.display = "none";
+
+          // Clear input and score
+          document.getElementById("playerName").value = "";
+          document.getElementById("score").textContent = "";
+          window.scrollTo(0, gameSection.offsetTop);
+
+          // Reset flag popup
+          isScorePopupActive = false;
+        };
+        popup.appendChild(playAgainBtn);
+
+        // Add popup to body
+        document.body.appendChild(popup);
+
+        // Optional: Add overlay
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100%";
+        overlay.style.height = "100%";
+        overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        overlay.style.zIndex = "999";
+        overlay.onclick = () => {
+          document.body.removeChild(overlay);
+          document.body.removeChild(popup);
+        };
+        document.body.appendChild(overlay);
+
+        // Calculate and display score when ">" is clicked at the last level
+        if (currentLevel === levels.length - 1 && levelCompleted) {
+          let skor = 100;
+          if (totalErrors >= 1 && totalErrors <= 4) skor = 95;
+          else if (totalErrors >= 5 && totalErrors <= 7) skor = 90;
+          else if (totalErrors >= 8 && totalErrors <= 10) skor = 85;
+          else if (totalErrors >= 11 && totalErrors <= 14) skor = 80;
+          else if (totalErrors >= 15 && totalErrors <= 18) skor = 75;
+          else if (totalErrors >= 19 && totalErrors <= 23) skor = 70;
+          else if (totalErrors >= 24 && totalErrors <= 28) skor = 65;
+          else if (totalErrors >= 29 && totalErrors <= 35) skor = 60;
+          else if (totalErrors >= 36 && totalErrors <= 40) skor = 55;
+          else if (totalErrors >= 41 && totalErrors <= 45) skor = 50;
+          else if (totalErrors >= 46 && totalErrors <= 50) skor = 45;
+          else if (totalErrors > 50) skor = 30;
+
+          const { data, error } = await client
+            .from("missionql")
+            .update({ skor: skor })
+            .eq("nama", playerName);
+
+          if (error) {
+            console.error("Gagal update skor:", error);
+            alert("Terjadi kesalahan saat menyimpan skor.");
+          } else {
+            console.log("Skor tersimpan:", skor);
+          }
+
+          scoreText.textContent = skor;
+        }
+      }
+
+      function restartGame() {
+        // Reset game state
+        currentLevel = 0;
+        totalErrors = 0;
+        levelCompleted = false;
+        completedLevels.clear();
+
+        // Hide popup and overlay
+        const popup = document.querySelector(".popup");
+        const overlay = document.querySelector(".overlay");
+        if (popup) document.body.removeChild(popup);
+        if (overlay) document.body.removeChild(overlay);
+
+        // Show name form and hide game container
+        nameForm.style.display = "flex";
+        gameContainer.style.display = "none";
+
+        // Clear input and score
+        document.getElementById("playerName").value = "";
+        scoreDisplay.textContent = "";
+      }
+    </script>
+  </body>
+</html>
