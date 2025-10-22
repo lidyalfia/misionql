@@ -149,44 +149,169 @@
         </h5>
       </div>
       <ul class="list-group">
-        <!-- Membuat Tabel -->
+        <!-- Membuat, alter, dan hapus Tabel -->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
           data-bs-target="#materi1"
         >
-          Membuat Tabel di MySQL
+          Create, Alter, dan Drop Table pada MySQL
         </li>
         <div class="collapse" id="materi1">
+          <br>
+          <h1>CREATE TABLE</h1>
           <div class="p-2">
-            Untuk membuat tabel di MySQL, kita menggunakan perintah
-            <code>CREATE TABLE</code>. Perintah ini digunakan untuk
-            mendefinisikan struktur tabel termasuk nama kolom, tipe data, serta
-            batasan lainnya seperti primary key, NOT NULL, atau AUTO_INCREMENT.
-            <br /><br /><strong>Contoh Sintaks:</strong>
+            Perintah <code>CREATE TABLE</code> digunakan untuk membuat tabel
+            baru di dalam database MySQL. Dengan perintah ini, kamu dapat
+            menentukan nama tabel, kolom-kolom yang ingin dibuat, tipe data tiap
+            kolom, serta batasan seperti <code>PRIMARY KEY</code> atau
+            <code>NOT NULL</code>. <br /><br />
+            <strong>Contoh Sintaks:</strong>
             <pre><code>CREATE TABLE penjualan (
               id INT PRIMARY KEY,
               nama_produk VARCHAR(100),
               harga_produk INT,
               keterangan VARCHAR(100)
-              );</code></pre>
-            - <code>id</code>: kolom bertipe integer, akan bertambah otomatis
-            setiap entri baru. - <code>nama_produk</code>: teks maksimal 100
-            karakter. - <code>harga_produk</code>: bertipe integer. -
-            <code>keterangan</code>: teks pendek (maksimal 100 karakter).
-            <br /><br />Perlu diingat, setiap tabel sebaiknya memiliki PRIMARY
-            KEY untuk membedakan setiap baris data secara unik.
+            );</code></pre>
+
+            <ul>
+              <li>
+                <code>id</code>: kolom bertipe integer yang akan bertambah
+                otomatis setiap ada data baru.
+              </li>
+              <li>
+                <code>nama_produk</code>: teks maksimal 100 karakter dan tidak
+                boleh kosong (<code>NOT NULL</code>).
+              </li>
+              <li>
+                <code>harga_produk</code>: bertipe integer, menyimpan harga
+                barang.
+              </li>
+              <li>
+                <code>keterangan</code>: teks singkat berisi deskripsi produk.
+              </li>
+            </ul>
+            <p>
+              <strong>Catatan:</strong> Setiap tabel sebaiknya memiliki kolom
+              <code>PRIMARY KEY</code> sebagai penanda unik untuk tiap baris
+              data.
+            </p>
+            <div class="img-materi">
+              <img src="assets/create.png" alt="Gambar Create Table" />
+            </div>
+            <br>
+            <h5>Tambahan: Tipe Data dalam MySQL</h5>
+            <p>
+              Dalam membuat tabel menggunakan <code>CREATE TABLE</code>, kamu
+              perlu memilih <strong>tipe data</strong> yang sesuai untuk setiap
+              kolom. Tipe data menentukan jenis nilai yang dapat disimpan di
+              kolom tersebut.
+            </p>
+
+            <ul>
+              <li>
+                <strong>INT</strong> – digunakan untuk menyimpan angka bulat
+                (misalnya: <code>100</code>, <code>-25</code>,
+                <code>5000</code>).
+              </li>
+              <li>
+                <strong>VARCHAR(n)</strong> – digunakan untuk teks dengan
+                panjang maksimal <code>n</code> karakter (misalnya:
+                <code>VARCHAR(100)</code>).
+              </li>
+              <li>
+                <strong>TEXT</strong> – digunakan untuk teks yang lebih panjang,
+                seperti deskripsi produk atau catatan.
+              </li>
+              <li>
+                <strong>DATE</strong> – digunakan untuk menyimpan tanggal dalam
+                format <code>YYYY-MM-DD</code>.
+              </li>
+              <li>
+                <strong>DECIMAL(p, q)</strong> – digunakan untuk angka desimal
+                dengan ketelitian tertentu (misalnya:
+                <code>DECIMAL(10,2)</code> untuk nilai
+                <code>99999999.99</code>).
+              </li>
+              <li>
+                <strong>BOOLEAN</strong> – menyimpan nilai logika, yaitu
+                <code>TRUE</code> (1) atau <code>FALSE</code> (0).
+              </li>
+            </ul>
+              <strong>Tips:</strong> Pilih tipe data yang sesuai agar
+              penyimpanan data lebih efisien dan proses query menjadi lebih
+              cepat.
+            </p>
+          </div>
+          <H1>ALTER TABLE</H1>
+          <div class="p-2">
+            Perintah <code>ALTER TABLE</code> digunakan untuk mengubah struktur
+            tabel yang sudah ada, seperti menambah kolom baru, mengubah tipe
+            data, mengganti nama kolom, atau menghapus kolom. <br /><br />
+            <strong>Contoh Menambah Kolom:</strong>
+            <pre><code>ALTER TABLE penjualan
+              ADD COLUMN stok INT AFTER harga_produk;</code></pre>
+
+            <strong>Contoh Mengubah Nama Kolom:</strong>
+            <pre><code>ALTER TABLE penjualan
+            CHANGE nama_produk nama_barang VARCHAR(100);</code></pre>
+
+            <strong>Contoh Menghapus Kolom:</strong>
+            <pre><code>ALTER TABLE penjualan
+            DROP COLUMN keterangan;</code></pre>
+            <p>
+              <strong>Contoh:</strong> Berikut ini hasil <code>ALTER TABLE</code> dengan
+              menambahkan kolom <code>stok</code> setelah kolom <code>harga_produk</code>
+            </p>
+            <div class="img-materi">
+              <img src="assets/alter.png" alt="Gambar Alter Table" />
+            </div>
+            <p>
+              <strong>Catatan:</strong> Gunakan <code>ALTER TABLE</code> dengan
+              hati-hati karena perubahan struktur tabel bisa mempengaruhi data
+              dan relasi antar tabel.
+            </p>
+          </div>
+          <h1>DROP TABLE</h1>
+          <div class="p-2">
+            Perintah <code>DROP TABLE</code> digunakan untuk menghapus tabel
+            beserta seluruh data di dalamnya dari database. Setelah dijalankan,
+            tabel tidak bisa dikembalikan kecuali kamu memiliki cadangan data.
+            <br /><br />
+            <strong>Contoh Sintaks:</strong>
+            <pre><code>DROP TABLE penjualan;</code></pre>
+
+            <p>
+              Jika kamu hanya ingin menghapus seluruh isi tabel tanpa menghapus
+              strukturnya, gunakan <code>TRUNCATE TABLE</code>:
+            </p>
+            <pre><code>TRUNCATE TABLE penjualan;</code></pre>
+            <p>
+              <strong>Contoh:</strong> Berikut ini hasil dari<code>DROP TABLE</code>
+            </p>
+            <div class="img-materi">
+              <img src="assets/drop.png" alt="Gambar Drop Table" />
+            </div>
+            <p>
+            <p>
+              <strong>Catatan:</strong> Gunakan <code>DROP TABLE</code> atau
+              <code>TRUNCATE</code> hanya jika kamu benar-benar yakin, karena
+              data yang sudah terhapus tidak dapat dikembalikan.
+            </p>
           </div>
         </div>
-        <!-- Memasukkan Data -->
+
+        <!-- Manipulasi Data -->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
           data-bs-target="#materi2"
         >
-          Memasukkan Data ke MySQL
+          Manipulasi data CRUD pada MySQL
         </li>
         <div class="collapse" id="materi2">
+          <br>
+          <h1>C (CREATE) - Memasukkan data</h1>
           <div class="p-2">
             Setelah membuat tabel, kita bisa menambahkan data dengan perintah
             <code>INSERT INTO</code>. Terdapat dua format umum:
@@ -204,168 +329,412 @@
               (2, 'Oddo Reno 5', 1700000, 'New'),
               (3, 'Samsung S25 Ultramilk', 20000000, 'Kredit'),
               (4, 'Semen Gresik', 100000, 'Preloved');</code></pre>
+            <p>
+              <strong>Contoh:</strong> Berikut ini contoh dari<code>INSERT INTO</code> untuk memasukkan banyak data
+            </p>
+            <div class="img-materi">
+              <img src="assets/insert.png" alt="Gambar Drop Table" />
+            </div>
+          </div>
+          <h1>R (READ) - Menampilkan data</h1>
+          <div class="p-2">
+            Untuk menampilkan data dari tabel, gunakan perintah <code>SELECT</code>.
+            Perintah ini berfungsi untuk membaca (read) data dari tabel.
+            <br /><br />
+            <strong>1. Menampilkan semua data dari tabel:</strong>
+            <pre><code>SELECT * FROM penjualan;</code></pre>
+            <strong>2. Menampilkan kolom tertentu saja:</strong>
+            <pre><code>SELECT nama_produk, harga_produk FROM penjualan;</code></pre>
+            <strong>3. Menampilkan data dengan kondisi tertentu:</strong>
+            <pre><code>SELECT * FROM penjualan WHERE keterangan = 'Second';</code></pre>
+            <strong>4. Mengurutkan data berdasarkan harga:</strong>
+            <pre><code>SELECT * FROM penjualan ORDER BY harga_produk DESC;</code></pre>
+            <p>
+              <strong>Contoh:</strong> Menampilkan data dengan kondisi tertentu (menampilkan data yang keterangannya <code>second</code>)
+            </p>
+            <div class="img-materi">
+              <img src="assets/select.png" alt="Gambar Select Data" />
+            </div>
+          </div>
+          <h1>U (UPDATE) - Mengubah data</h1>
+          <div class="p-2">
+            Untuk mengubah data di tabel, gunakan perintah <code>UPDATE</code>.
+            Pastikan selalu menambahkan klausa <code>WHERE</code> agar data yang diubah
+            spesifik.
+            <br /><br />
+            <strong>1. Mengubah satu kolom:</strong>
+            <pre><code>UPDATE penjualan SET harga_produk = 18000000 WHERE id = 1;</code></pre>
+            <strong>2. Mengubah lebih dari satu kolom:</strong>
+            <pre><code>UPDATE penjualan
+              SET harga_produk = 17500000, keterangan = 'New'
+              WHERE id = 1;</code></pre>
+            <strong>3. Mengubah data berdasarkan kondisi tertentu:</strong>
+            <pre><code>UPDATE penjualan SET keterangan = 'Diskon'
+            WHERE harga_produk > 10000000;</code></pre>
+            <p>
+              <strong>Contoh:</strong> Mengubah harga produk “Oddo Reno 5” menjadi Rp
+              1.800.000:
+            </p>
+            <pre><code>UPDATE penjualan SET harga_produk = 1800000 WHERE id = 2;</code></pre>
+            <div class="img-materi">
+              <img src="assets/update.png" alt="Gambar Update Data" />
+            </div>
+          </div>
+          <h1>D (DELETE) - Menghapus data</h1>
+          <div class="p-2">
+            Untuk menghapus data dari tabel, gunakan perintah <code>DELETE</code>.
+            Gunakan klausa <code>WHERE</code> untuk menghindari penghapusan seluruh data.
+            <br /><br />
+            <strong>1. Menghapus satu baris data berdasarkan ID:</strong>
+            <pre><code>DELETE FROM penjualan WHERE id = 4;</code></pre>
+            <strong>2. Menghapus berdasarkan kondisi tertentu:</strong>
+            <pre><code>DELETE FROM penjualan WHERE keterangan = 'Preloved';</code></pre>
+            <strong>3. Menghapus seluruh data di tabel:</strong>
+            <pre><code>DELETE FROM penjualan;</code></pre>
+            (Gunakan dengan hati-hati!)
+            <p>
+              <strong>Contoh:</strong> Menghapus produk dengan ID = 3:
+            </p>
+            <pre><code>DELETE FROM penjualan WHERE id = 3;</code></pre>
+            <div class="img-materi">
+              <img src="assets/delete.png" alt="Gambar Delete Data" />
+            </div>
           </div>
         </div>
-        <!-- GROUP BY & Agregat -->
+        <!--Filtering data-->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
           data-bs-target="#materi3"
         >
-          GROUP BY dan Fungsi Agregat
+          Filtering data pada MySQL
         </li>
         <div class="collapse" id="materi3">
+          <br />
+          <h1>FILTERING DATA</h1>
           <div class="p-2">
-            Fungsi agregat digunakan untuk melakukan perhitungan statistik pada
-            data, seperti menghitung jumlah, rata-rata, maksimum, dan
-            sebagainya.
-            <br /><br /><strong>Fungsi Umum:</strong> - <code>COUNT()</code>:
-            Menghitung jumlah data. - <code>SUM()</code>: Menjumlahkan nilai
-            kolom. - <code>AVG()</code>: Menghitung rata-rata. -
-            <code>MIN()</code> dan <code>MAX()</code>: Nilai terkecil dan
-            terbesar. <br /><br /><strong>Contoh Penggunaan:</strong>
-            <pre><code>SELECT SUM(harga_produk) AS total
-              FROM penjualan;
-          </code></pre>
-            Hasil query di atas akan menampilkan hasil penjumlahan seluruh
-            harga_produk pada tabel penjualan dan akan ditampilkan sebagai
-            "total" pada kolom hasil penjumlahan.
-            <br /><br /><strong>Menambahkan Penyaringan dengan HAVING:</strong>
-            <pre><code>SELECT kelas, COUNT(*) AS jumlah
-              FROM siswa
-              GROUP BY kelas
-              HAVING jumlah > 2;</code></pre>
-            <strong>NOTE:</strong> <code>WHERE</code> digunakan untuk menyaring
-            sebelum agregat, sedangkan <code>HAVING</code> setelah.
+            Perintah <code>SELECT</code> di MySQL digunakan untuk menampilkan data
+            dari tabel. Agar hasilnya lebih spesifik, kamu dapat menambahkan klausa
+            <code>WHERE</code> untuk memfilter atau menyaring data sesuai kondisi yang
+            diinginkan.
+            <br /><br />
+            Misalnya, kita memiliki tabel bernama <code>penjualan</code> dengan kolom:
+            <code>id</code>, <code>nama_produk</code>, <code>harga_produk</code>, dan
+            <code>keterangan</code>.
+            <br /><br />
+            <strong>Contoh Menampilkan Semua Data:</strong>
+            <pre><code>SELECT * FROM penjualan;</code></pre>
+
+            <strong>Contoh Menampilkan Data dengan Kondisi Tertentu:</strong>
+            <pre><code>SELECT * FROM penjualan
+            WHERE harga_produk > 100000;</code></pre>
+
+            <p>
+              Perintah di atas menampilkan semua produk yang memiliki harga lebih dari
+              100.000.
+            </p>
+
+            <strong>Contoh Menampilkan Produk Berdasarkan Nama:</strong>
+            <pre><code>SELECT * FROM penjualan
+            WHERE nama_produk = 'Laptop';</code></pre>
+
+            <p>
+              Perintah tersebut hanya akan menampilkan data produk dengan nama
+              <code>Laptop</code>.
+            </p>
+
+            <strong>Contoh Menggunakan Operator Logika:</strong>
+            <pre><code>SELECT * FROM penjualan
+              WHERE harga_produk >= 1000000 AND keterangan = 'Elektronik';</code></pre>
+
+            <p>
+              Hasilnya menampilkan semua produk yang harganya di atas atau sama dengan
+              1.000.000 dan memiliki keterangan "Elektronik".
+            </p>
+
+            <strong>Contoh Menggunakan Operator LIKE (Pencarian Pola Teks):</strong>
+            <pre><code>SELECT * FROM penjualan
+              WHERE nama_produk LIKE '%phone%';</code></pre>
+
+            <p>
+              Operator <code>LIKE</code> digunakan untuk mencari pola teks. Tanda persen
+              (<code>%</code>) berfungsi sebagai wildcard. Contoh di atas akan menampilkan
+              semua produk yang memiliki kata "phone" di dalam namanya (misalnya:
+              <em>Smartphone</em>, <em>Headphone</em>).
+            </p>
+
+            <strong>Contoh Mengurutkan Hasil Filter:</strong>
+            <pre><code>SELECT * FROM penjualan
+              WHERE harga_produk > 500000
+              ORDER BY harga_produk DESC;</code></pre>
+
+            <p>
+              Perintah <code>ORDER BY</code> digunakan untuk mengurutkan hasil. Tambahkan
+              <code>DESC</code> untuk urutan dari yang terbesar ke terkecil, atau
+              <code>ASC</code> untuk urutan dari yang terkecil ke terbesar.
+              Gambar di bawah ini menunjukkan data yang memuat <code>harga_produk</code> yang diurutkan dari yang terbesar hingga terkecil
+            </p>
+
+            <div class="img-materi">
+              <img src="assets/filtering.png" alt="Gambar Filtering Data" />
+            </div>
+
+            <p>
+              <strong>Catatan:</strong> Filtering data sangat berguna untuk mencari
+              informasi spesifik dalam jumlah data yang besar. Gunakan kombinasi
+              <code>WHERE</code>, <code>AND</code>, <code>OR</code>, dan
+              <code>LIKE</code> untuk menghasilkan hasil pencarian yang akurat dan efisien.
+            </p>
           </div>
         </div>
-        <!-- JOIN -->
+
+        <!-- AGREGAT & GROUP BY -->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
-          data-bs-target="#materi4"
+          data-bs-target="#materiFungsiAgregat"
         >
-          JOIN dalam MySQL
+          Fungsi Agregat pada MySQL
         </li>
-        <div class="collapse" id="materi4">
+        <div class="collapse" id="materiFungsiAgregat">
           <div class="p-2">
-            JOIN digunakan untuk menggabungkan data dari dua atau lebih tabel
-            berdasarkan kolom yang berhubungan.
-            <br /><br /><strong>Jenis JOIN:</strong> - <code>INNER JOIN</code>:
-            Mengambil data yang cocok di kedua tabel. - <code>LEFT JOIN</code>:
-            Mengambil semua data dari tabel kiri, dan data yang cocok dari tabel
-            kanan. - <code>RIGHT JOIN</code>: Kebalikan dari LEFT JOIN. -
-            <code>FULL JOIN</code>: Gabungan dari LEFT dan RIGHT JOIN (tidak
-            langsung didukung MySQL, bisa disimulasikan). <br /><br /><strong
-              >Contoh:</strong
-            >
-            Misalkan ada tabel <code>siswa</code> dan <code>kelas</code>:
-            <pre><code>SELECT siswa.nama, kelas.nama_kelas
-              FROM siswa
-              INNER JOIN kelas ON siswa.kelas = kelas.id;</code></pre>
-            Query di atas akan menampilkan nama siswa beserta nama kelas dari
-            tabel lain yang cocok.
+            <p>
+              <strong>Fungsi Agregat</strong> digunakan untuk melakukan perhitungan
+              terhadap sekumpulan data dalam tabel. Biasanya digunakan bersama
+              perintah <code>SELECT</code> untuk menampilkan hasil perhitungan seperti
+              jumlah data, rata-rata, nilai maksimum, minimum, dan sebagainya.
+            </p>
+
+            <p>
+              Fungsi-fungsi agregat berguna ketika kita ingin mendapatkan ringkasan
+              informasi dari data yang besar tanpa harus melihat seluruh baris satu
+              per satu.
+            </p>
+
+            <h6>🔹 Macam-macam Fungsi Agregat:</h6>
+            <ul>
+              <li><code>COUNT()</code> → Menghitung jumlah baris data.</li>
+              <li><code>SUM()</code> → Menjumlahkan nilai dari suatu kolom numerik.</li>
+              <li><code>AVG()</code> → Menghitung rata-rata nilai.</li>
+              <li><code>MAX()</code> → Menampilkan nilai terbesar.</li>
+              <li><code>MIN()</code> → Menampilkan nilai terkecil.</li>
+            </ul>
+
+            <h6>🔹 Contoh Penggunaan:</h6>
+            <pre><code>SELECT COUNT(*) AS jumlah_data FROM penjualan;</code></pre>
+            <p>
+              Query di atas menghitung jumlah seluruh baris data dalam tabel
+              <code>penjualan</code>.
+            </p>
+
+            <pre><code>SELECT SUM(harga) AS total_harga FROM penjualan;</code></pre>
+            <p>
+              Query ini menghitung total harga seluruh produk dari kolom <code>harga</code> dalam
+              tabel <code>penjualan</code>.
+            </p>
+
+            <div class="img-materi">
+              <img
+                src="assets/agregat.png"
+                alt="Gambar Fungsi Agregat MySQL"
+              />
+            </div>
+            <p>Gambar di atas menampilkan total keseluruhan harga_produk jika dijumlahkan</p>
+
+            <p>
+              Fungsi agregat juga bisa digabungkan dengan klausa
+              <code>GROUP BY</code> untuk menghitung data berdasarkan kelompok tertentu.
+            </p>
+
+            <pre><code>
+              SELECT kategori, SUM(harga) AS total_harga
+              FROM penjualan
+              GROUP BY kategori;
+            </code></pre>
+
+            <p>
+              Query tersebut akan menjumlahkan harga berdasarkan setiap kategori
+              barang dalam tabel <code>penjualan</code>.
+            </p>
           </div>
         </div>
+
         <!-- SUBQUERY -->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
-          data-bs-target="#materi5"
+          data-bs-target="#materi10"
         >
-          SUBQUERY dalam MySQL
+          Subquery pada MySQL
         </li>
-        <div class="collapse" id="materi5">
+        <div class="collapse" id="materi10">
           <div class="p-2">
             SUBQUERY adalah query di dalam query lainnya. Biasanya digunakan di
             bagian SELECT, FROM, atau WHERE.
-            <br /><br /><strong>Contoh:</strong> Menampilkan siswa yang
-            mendaftar paling awal:
+            <br /><br /><strong>Contoh:</strong> Menampilkan produk dengan harga terendah
             <pre><code>
             SELECT * 
-            FROM siswa
-            WHERE tanggal_daftar = (SELECT MIN(tanggal_daftar) FROM siswa);</code></pre>
+            FROM penjualan
+            WHERE harga_produk = (SELECT MIN(harga_produk) FROM penjualan);</code></pre>
+            <div class="img-materi">
+              <img src="assets/subquery.png" alt="Gambar Filtering Data" />
+            </div>
+            <p>Data yang ditampilkan adalah produk yang memiliki harga paling kecil pada tabel penjualan</p>
             <strong>Jenis SUBQUERY:</strong>
             - Dalam <code>SELECT</code>: untuk nilai tambahan. - Dalam
             <code>WHERE</code>: sebagai filter. - Dalam <code>FROM</code>:
-            sebagai tabel sementara (alias). <br /><br /><strong
-              >Catatan:</strong
-            >
-            SUBQUERY harus menghasilkan 1 nilai jika digunakan dalam
-            perbandingan langsung (=, >, <, dsb).
+            sebagai tabel sementara (alias). <br /><br /><strong>
           </div>
         </div>
-        <!-- VIEW -->
-        <li
-          class="list-group-item list-group-item-action"
-          data-bs-toggle="collapse"
-          data-bs-target="#materi6"
-        >
-          VIEW dalam MySQL
-        </li>
-        <div class="collapse" id="materi6">
-          <div class="p-2">
-            VIEW adalah tabel virtual yang berisi hasil dari query. VIEW
-            menyederhanakan query kompleks dan meningkatkan keamanan data.
-            <br /><br /><strong>Membuat VIEW:</strong>
-            <pre><code>CREATE VIEW daftar_siswa AS
-              SELECT nama, kelas FROM siswa
-              WHERE umur > 15;</code></pre>
-            <strong>Menggunakan VIEW:</strong>
-            <pre><code>SELECT * FROM daftar_siswa;</code></pre>
-            <strong>Menghapus VIEW:</strong>
-            <pre><code>DROP VIEW daftar_siswa;</code></pre>
-            <br /><strong>Kelebihan VIEW:</strong>
-            - Menyederhanakan query yang rumit - Meningkatkan keamanan (tidak
-            semua kolom ditampilkan) - Mudah diakses layaknya tabel biasa
-            <br /><strong>Catatan:</strong> VIEW tidak menyimpan data, hanya
-            menyimpan struktur query.
-          </div>
-        </div>
+
         <!-- NOT, dan LIMIT -->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
-          data-bs-target="#materi7"
+          data-bs-target="#materi12"
         >
-          NOT dan LIMIT dalam MySQL
+          NOT dan LIMIT pada MySQL
         </li>
-        <div class="collapse" id="materi7">
+        <div class="collapse" id="materi12">
           <div class="p-2">
-            <br /><br /><strong>NOT:</strong><br />
-            Operator <code>NOT</code> digunakan untuk menegasikan kondisi dalam
-            query, misalnya untuk mengambil data yang tidak memenuhi kriteria
-            tertentu. <br /><br /><strong>Contoh:</strong>
+            <br>
+            <h1>NOT</h1>
+            <p>
+              Operator <code>NOT</code> digunakan untuk menegasikan (membalik) kondisi dalam query.
+              Artinya, <code>NOT</code> akan menampilkan data yang <b>tidak memenuhi</b> kriteria tertentu.
+              Operator ini sering dipakai untuk memfilter data yang tidak termasuk dalam suatu kategori.
+            </p>
+
+            <strong>Contoh:</strong>
             <pre><code>
-              SELECT * FROM siswa
-              WHERE NOT kelas = 'XI IPA';</code></pre>
-            Query ini akan menampilkan semua siswa yang <b>tidak</b> berada di
-            kelas 'XI IPA'. <code>NOT</code> juga bisa digunakan dengan operator
-            lain seperti <code>NOT IN</code> atau <code>NOT LIKE</code>.
+                SELECT * FROM penjualan
+                WHERE NOT keterangan = 'Diskon';
+            </code></pre>
+            <p>
+              Query di atas akan menampilkan semua data produk dari tabel
+              <code>penjualan</code> yang <b>tidak</b> memiliki keterangan "Diskon".
+            </p>
+
             <pre><code>
-              SELECT * FROM siswa
-              WHERE nama NOT LIKE 'A%';</code></pre>
-            Query ini mengambil siswa yang namanya tidak diawali huruf 'A'.
-            <br /><br /><strong>LIMIT:</strong><br />
-            Perintah <code>LIMIT</code> digunakan untuk membatasi jumlah baris
-            yang dikembalikan oleh query, sangat berguna untuk pagination atau
-            hanya melihat sebagian data. <br /><br /><strong>Contoh:</strong>
+              SELECT * FROM penjualan
+              WHERE nama_produk NOT LIKE 'A%';
+            </code></pre>
+            <p>
+              Query ini menampilkan produk yang <b>namanya tidak diawali huruf "A"</b>.
+            </p>
+
             <pre><code>
-              SELECT * FROM siswa
-              LIMIT 3;</code></pre>
-            Query ini hanya akan menampilkan 3 baris pertama dari hasil query.
-            Anda juga bisa menggunakan <code>LIMIT</code> dengan offset untuk
-            melewati beberapa baris:
+              SELECT * FROM penjualan
+              WHERE harga_produk NOT BETWEEN 100000 AND 2000000;
+            </code></pre>
+            <p>
+              Query ini menampilkan produk dengan harga di luar rentang 100.000 hingga 2.000.000.
+              Berikut ini hasil dari query di atas
+            </p>
+
+            <div class="img-materi">
+              <img src="assets/not.png" alt="Gambar Contoh Operator NOT" />
+            </div>
+            <p>Data yang ditampilkan adalah produk yang harganya bukan di antara 100.000 dan 2.000.000</p>
+
+            <br>
+            <h1>LIMIT</h1>
+            <p>
+              Perintah <code>LIMIT</code> digunakan untuk membatasi jumlah baris yang ditampilkan dari hasil query.
+              Fitur ini sangat berguna ketika kamu hanya ingin melihat sebagian data atau menerapkan <i>pagination</i> dalam aplikasi.
+            </p>
+
+            <strong>Contoh:</strong>
             <pre><code>
-              SELECT * FROM siswa
-              LIMIT 2, 3;</code></pre>
-            Query ini akan melewati 2 baris pertama dan mengambil 3 baris
-            berikutnya (baris ke-3 hingga ke-5).
+              SELECT * FROM penjualan
+              LIMIT 3;
+            </code></pre>
+            <p>
+              Query ini hanya akan menampilkan <b>3 baris pertama</b> dari tabel
+              <code>penjualan</code>.
+            </p>
+
+            <pre><code>
+              SELECT * FROM penjualan
+              LIMIT 2, 3;
+            </code></pre>
+            <p>
+              Query ini akan melewati <b>2 baris pertama</b> dan menampilkan
+              <b>3 baris berikutnya</b> (baris ke-3 sampai ke-5).
+            </p>
+
+            <pre><code>
+              SELECT * FROM penjualan
+              WHERE harga_produk > 50000
+              LIMIT 2;
+            </code></pre>
+            <p>
+              Query ini menampilkan <b>2 produk pertama</b> dengan harga di atas 50.000. Lihat gambar di bawah ini
+            </p>
+
+            <div class="img-materi">
+              <img src="assets/limit.png" alt="Gambar Contoh LIMIT" />
+            </div>
+            <p>Gambar di atas menampilkan 2 produk pertama yang harganya di atas 50.000</p>
+
+            <p><strong>Catatan:</strong> Gunakan <code>LIMIT</code> saat menampilkan data dalam jumlah besar agar
+              query lebih efisien dan tampilan data lebih mudah dibaca.</p>
           </div>
         </div>
       </ul>
     </div>
 
+    <!-- Game Section -->
+    <div id="game-section" class="responsive-box">
+      <br />
+      <br />
+      <h1 class="game-title">SQL Puzzle<br />Drag & Drop</h1>
+      <br />
+      <br />
+      <div class="description" id="description"></div>
+
+      <!-- Name Input Form -->
+      <div
+        id="nameForm"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        "
+      >
+        <h2>Masukkan namamu!</h2>
+        <input
+          type="text"
+          id="playerName"
+          placeholder="Nama kamu..."
+          style="padding: 10px; border-radius: 5px; width: 250px; margin: 10px"
+        />
+        <button onclick="submitName()">Kirim</button>
+      </div>
+
+      <div id="gameContainer" style="display: none">
+        <div id="data-table-container"></div>
+        <div class="scroll-container">
+          <div class="grid" id="grid"></div>
+        </div>
+        <div class="draggables" id="draggables"></div>
+        <div class="button-container">
+          <button onclick="checkAnswer()">CEK JAWABAN</button>
+          <button onclick="resetGame()">RESET</button>
+          <button
+            class="nav-button"
+            onclick="nextLevel()"
+            id="nextButton"
+            disabled
+          >
+            ❯
+          </button>
+        </div>
+        <div id="score"></div>
+      </div>
+    </div>
     <!-- Game Section -->
     <div id="game-section" class="responsive-box">
       <br />
@@ -1126,3 +1495,4 @@
     </script>
   </body>
 </html>
+
