@@ -223,7 +223,7 @@ const levels = [
       "Saya ingin membuat perintah untuk menampilkan data dari tabel siswa <b>yang bukan umur 17</b>.",
     layout: [
       ["SELECT", "*", "FROM", "siswa", "", ""],
-      ["WHERE", "NOT", "umur", "=", "'17'", ";"],
+      ["WHERE", "umur", "NOT", "=", "'17'", ";"],
     ],
     disabledCells: [
       [0, 4],
@@ -261,6 +261,7 @@ function createGrid() {
       if (cell !== "" && !isDisabled && !completedLevels.has(currentLevel)) {
         div.classList.add("enabled");
 
+        // Drag-and-drop event listeners
         div.ondragover = (e) => {
           e.preventDefault();
           if (!div.textContent) div.classList.add("drag-over");
@@ -277,14 +278,16 @@ function createGrid() {
           }
         };
 
+        // Click to remove word back to draggables
         div.addEventListener("click", () => {
-          if (div.textContent) {
+          if (div.textContent && !completedLevels.has(currentLevel)) {
             const word = div.textContent;
             div.textContent = "";
             createDraggable(word);
           }
         });
 
+        // Touch events for drag-and-drop
         let touchStartTime = 0;
         let touchStartX = 0;
         let touchStartY = 0;
@@ -322,6 +325,7 @@ function createGrid() {
         });
       } else {
         div.classList.add("disabled");
+        div.textContent = cell; // Tampilkan teks untuk disabled cells
       }
 
       level.mergedCells.forEach((merge) => {
@@ -341,6 +345,7 @@ function createDraggable(word, id) {
   span.textContent = word;
   span.id = id || `word-${Math.random().toString(36).substr(2, 9)}`;
 
+  // Drag-and-drop functionality
   span.draggable = !completedLevels.has(currentLevel);
   span.ondragstart = (e) => {
     if (!completedLevels.has(currentLevel)) {
@@ -348,6 +353,7 @@ function createDraggable(word, id) {
     }
   };
 
+  // Touch events for drag-and-drop
   let startX = 0,
     startY = 0;
   let offsetX = 0,
@@ -413,7 +419,40 @@ function createDraggable(word, id) {
     isDragging = false;
   });
 
+  // Click to place automatically
+  span.addEventListener("click", () => {
+    if (completedLevels.has(currentLevel)) return;
+    placeWordAutomatically(word, span);
+  });
+
   draggables.appendChild(span);
+}
+
+function placeWordAutomatically(word, span) {
+  const cells = document.querySelectorAll(".cell.enabled");
+  let placed = false;
+
+  // Cari sel kosong secara berurutan dari kiri atas
+  for (let cell of cells) {
+    if (!cell.textContent) {
+      cell.textContent = word;
+      span.remove();
+      placed = true;
+      break;
+    }
+  }
+
+  if (!placed) {
+    alert("Tidak ada sel kosong yang tersedia!");
+  }
+}
+
+function initDraggables() {
+  draggables.innerHTML = "";
+  answer = levels[currentLevel].layout.flat().filter((cell) => cell !== "");
+  answer
+    .sort(() => 0.5 - Math.random())
+    .forEach((word) => createDraggable(word));
 }
 
 function initDraggables() {
