@@ -358,12 +358,14 @@ function createDraggable(word, id) {
     startY = 0;
   let offsetX = 0,
     offsetY = 0;
+  let touchStartTime = 0;
 
   span.addEventListener("touchstart", (e) => {
     if (completedLevels.has(currentLevel)) return;
     e.preventDefault();
     touchItem = span;
     isDragging = false;
+    touchStartTime = Date.now();
     const touch = e.touches[0];
     startX = touch.clientX;
     startY = touch.clientY;
@@ -396,20 +398,27 @@ function createDraggable(word, id) {
     e.preventDefault();
     span.style.visibility = "hidden";
     const touch = e.changedTouches[0];
+    const touchDuration = Date.now() - touchStartTime;
     const target = document.elementFromPoint(touch.clientX, touch.clientY);
     span.style.visibility = "visible";
-    if (
+
+    // Deteksi tap (sentuhan singkat)
+    if (touchDuration < 300 && !isDragging) {
+      placeWordAutomatically(word, span); // Panggil fungsi untuk tap
+    } else if (
       isDragging &&
       target &&
       target.classList.contains("cell") &&
       target.classList.contains("enabled") &&
       !target.textContent
     ) {
+      // Logika drag-and-drop
       target.textContent = span.textContent;
       target.classList.remove("drag-over");
       span.remove();
       touchItem = null;
     } else {
+      // Kembalikan posisi span jika tidak ditempatkan
       span.style.position = "relative";
       span.style.left = "auto";
       span.style.top = "auto";
@@ -419,7 +428,7 @@ function createDraggable(word, id) {
     isDragging = false;
   });
 
-  // Click to place automatically
+  // Click to place automatically (untuk desktop)
   span.addEventListener("click", () => {
     if (completedLevels.has(currentLevel)) return;
     placeWordAutomatically(word, span);
