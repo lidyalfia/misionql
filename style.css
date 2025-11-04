@@ -4,6 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 12pt;
   padding-top: 70px;
+  line-height: 2;
 }
 
 .img-materi {
@@ -56,6 +57,7 @@ body {
   border-radius: 8px;
   padding: 10px;
   font-size: 10pt;
+  line-height: 1.8;
 }
 
 .link-box {
@@ -85,6 +87,20 @@ button {
 
 .collapse .p-2 {
   font-size: 13pt;
+  line-height: 2;
+}
+
+.p-2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  line-height: 2;
+  font-weight: normal;
+  color: white;
+}
+
+.card-text {
+  line-height: 2;
+  font-size: 12pt;
 }
 
 .navbar {
@@ -97,6 +113,7 @@ button {
   background-color: #1c1c1c;
   color: #f1f1f1;
   border-color: #333;
+  line-height: 2;
 }
 
 .list-group-item:hover {
@@ -138,7 +155,7 @@ h2 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(9, 100px); /* Max columns from all games */
+  grid-template-columns: repeat(9, 100px);
   gap: 10px;
   justify-content: center;
   background: #333;
@@ -232,8 +249,8 @@ h2 {
 }
 
 .data-table {
-  max-width: 700px;
-  margin: 20px auto;
+  max-width: 400px;
+  margin: 10px auto;
   border-collapse: collapse;
   background: #333;
   border-radius: 5px;
@@ -242,7 +259,7 @@ h2 {
 
 .data-table th,
 .data-table td {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #555;
   text-align: center;
 }
@@ -256,6 +273,45 @@ h2 {
 .data-table td {
   background: #444;
   color: #fff;
+}
+
+.pengumpulan {
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  padding-top: 70px;
+  line-height: 2;
+  text-align: center;
+}
+
+.footer {
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 12pt;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #00bfe8;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -297,5 +353,15 @@ h2 {
 
   .nav-button {
     font-size: 20px;
+  }
+  .footer-content {
+    font-size: 10pt;
+    padding: 0 10px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 }
