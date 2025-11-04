@@ -559,41 +559,13 @@
           </div>
         </div>
 
-        <!-- SUBQUERY -->
-        <li
-          class="list-group-item list-group-item-action"
-          data-bs-toggle="collapse"
-          data-bs-target="#materi10"
-        >
-          Subquery pada MySQL
-        </li>
-        <div class="collapse" id="materi10">
-          <div class="p-2">
-            SUBQUERY adalah query di dalam query lainnya. Biasanya digunakan di
-            bagian SELECT, FROM, atau WHERE.
-            <br /><br /><strong>Contoh:</strong> Menampilkan produk dengan harga terendah
-            <pre><code>
-            SELECT * 
-            FROM penjualan
-            WHERE harga_produk = (SELECT MIN(harga_produk) FROM penjualan);</code></pre>
-            <div class="img-materi">
-              <img src="assets/subquery.png" alt="Gambar Filtering Data" />
-            </div>
-            <p>Data yang ditampilkan adalah produk yang memiliki harga paling kecil pada tabel penjualan</p>
-            <strong>Jenis SUBQUERY:</strong>
-            - Dalam <code>SELECT</code>: untuk nilai tambahan. - Dalam
-            <code>WHERE</code>: sebagai filter. - Dalam <code>FROM</code>:
-            sebagai tabel sementara (alias). <br /><br /><strong>
-          </div>
-        </div>
-
         <!-- NOT, dan LIMIT -->
         <li
           class="list-group-item list-group-item-action"
           data-bs-toggle="collapse"
           data-bs-target="#materi12"
         >
-          NOT dan LIMIT pada MySQL
+          Not dan Limit pada MySQL
         </li>
         <div class="collapse" id="materi12">
           <div class="p-2">
@@ -681,6 +653,34 @@
               query lebih efisien dan tampilan data lebih mudah dibaca.</p>
           </div>
         </div>
+
+        <!-- SUBQUERY -->
+        <li
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="collapse"
+          data-bs-target="#materi10"
+        >
+          Subquery pada MySQL
+        </li>
+        <div class="collapse" id="materi10">
+          <div class="p-2">
+            SUBQUERY adalah query di dalam query lainnya. Biasanya digunakan di
+            bagian SELECT, FROM, atau WHERE.
+            <br /><br /><strong>Contoh:</strong> Menampilkan produk dengan harga terendah
+            <pre><code>
+            SELECT * 
+            FROM penjualan
+            WHERE harga_produk = (SELECT MIN(harga_produk) FROM penjualan);</code></pre>
+            <div class="img-materi">
+              <img src="assets/subquery.png" alt="Gambar Filtering Data" />
+            </div>
+            <p>Data yang ditampilkan adalah produk yang memiliki harga paling kecil pada tabel penjualan</p>
+            <strong>Jenis SUBQUERY:</strong>
+            - Dalam <code>SELECT</code>: untuk nilai tambahan. - Dalam
+            <code>WHERE</code>: sebagai filter. - Dalam <code>FROM</code>:
+            sebagai tabel sementara (alias). <br /><br /><strong>
+          </div>
+        </div>
       </ul>
     </div>
 
@@ -711,7 +711,9 @@
           placeholder="Nama kamu..."
           style="padding: 10px; border-radius: 5px; width: 250px; margin: 10px"
         />
-        <button onclick="submitName()">Kirim</button>
+        <div class="button-container">
+          <button onclick="submitName()">Kirim</button>
+        </div>
       </div>
 
       <div id="gameContainer" style="display: none">
@@ -735,6 +737,183 @@
         <div id="score"></div>
       </div>
     </div>
+   
+    <div id="game-section" class="responsive-box">
+      <h1 class="game-title">Yuk Belajar<br />Latihan Soal</h1>
+      <br /><br>
+      <div class="p-2">
+        Susunlah query sesuai dengan perintah di bawah pada tools yang kamu gunakan untuk menjalankan perintah MySQL
+        Baik localhost, command prompt, SQLyog, dan lain-lain. Jangan lupa berikan deskripsi dan penjelasan singkat
+      </div>
+      <br><br>
+      <div class="description" id="description"></div>
+      <div class="p-2">
+        <h1>Create, Alter, & Drop Table</h1> <br>
+        <ol>
+          <li>
+            Buatlah tabel dengan nama <b>gudang</b> dengan ketentuan sebagai berikut:
+            <br />
+            <table border="1" class = "data-table">
+              <tr><th>Kolom</th><th>Tipe Data</th></tr>
+              <tr><td>id</td><td>INT PRIMARY KEY</td></tr>
+              <tr><td>nama_barang</td><td>INT</td></tr>
+              <tr><td>harga</td><td>INT</td></tr>
+            </table>
+          </li>
+
+          <li>
+            Modifikasi tabel dengan menambahkan kolom <b>total_item</b> bertipe data
+            <code>INT</code> setelah kolom <b>nama_barang</b>.
+          </li>
+
+          <li>
+            Modifikasi tipe data kolom <b>nama_barang</b> menjadi
+            <code>VARCHAR(100)</code>.
+          </li>
+
+          <li>
+            Cobalah untuk menghapus tabel <b>gudang</b>. Bagaimana hasilnya?
+          </li>
+
+          <li>
+            Buat ulang tabel <b>gudang</b> dengan ketentuan sebagai berikut:
+            <br />
+            <table border="1" class = "data-table">
+              <tr><th>Kolom</th><th>Tipe Data</th></tr>
+              <tr><td>id</td><td>INT PRIMARY KEY</td></tr>
+              <tr><td>nama_barang</td><td>VARCHAR(100)</td></tr>
+              <tr><td>total_item</td><td>INT</td></tr>
+              <tr><td>harga</td><td>INT</td></tr>
+            </table>
+          </li>
+        </ol>
+        <br>
+        <br>
+        <br>
+        <h1>CRUD Pada MySQL</h1> <br>
+        <ol>
+          <li>
+            Masukkan data sebagai berikut ke tabel <b>gudang</b>
+            <br />
+            <table border="1" class = "data-table">
+              <tr><th>id</th><th>nama_barang</th><th>total_item</th><th>harga</th></tr>
+              <tr><td>1</td><td>Sabun</td><td>5</td><td>3000</td></tr>
+              <tr><td>2</td><td>Sampo</td><td>8</td><td>30000</td></tr>
+              <tr><td>3</td><td>Sikat gigi</td><td>5</td><td>7500</td></tr>
+              <tr><td>4</td><td>Pasta gigi</td><td>6</td><td>5000</td></tr>
+              <tr><td>5</td><td>Semen Gresik</td><td>7</td><td>1000000</td></tr>
+              
+            </table>
+          </li>
+
+          <li>
+            Tampilkan data barang yang <b>id-nya = 1</b>
+          </li>
+
+          <li>
+            Ubahlah <b>total_item</b> pada nama_barang = sampo menjadi 4
+          </li>
+
+          <li>
+            Ubah harga pada <b>id = 1</b>menjadi 2500
+          </li>
+
+          <li>
+            Hapus data dari tabel gudang yang <b>total_item-nya = 6</b>
+            <br />
+          </li>
+        </ol>
+        <br>
+        <br>
+        <br>
+        <h1>Filtering Data Pada MySQL</h1> <br>
+        <ol>
+          <li>
+            Tampilkan data yang <b>harga produknya > 3000</b>
+          </li>
+          <li>
+            Tampilkan data yang <b>harganya > 3000 dan < 30000</b>
+          </li>
+          <li>
+            Tampilkan data yang <b>total_item-nya 5</b> dan <b>nama_barang “sikat gigi” </b>
+          </li>
+          <li>
+            Tampilkan data dengan cara mengurutkan <b>nama_barang</b> secara <code>ascending</code> (berurutan A-Z)
+          </li>
+        </ol>
+        <br>
+        <br>
+        <br>
+        <h1>Fungsi Agregat</h1> <br>
+        <ol>
+          <li>
+            Hitung <b>seluruh baris yang ada</b> pada tabel gudang
+          </li>
+          <li>
+            <b>Jumlahkan seluruh harga</b> pada tabel gudang
+          </li>
+          <li>
+            Hitung <b>rata-rata total_item</b> pada tabel gudang
+          </li>
+          <li>
+            Carilah barang dengan <b>harga terkecil</b>
+          </li>
+          <li>
+            Carilah barang dengan <b>total_item terbanyak</b>
+          </li>
+        </ol>
+        <br>
+        <br>
+        <br>
+        <h1>Not & Limit</h1> <br>
+        <ol>
+          <li>
+            Tampilkan data yang <b>id-nya bukan sama dengan 3</b> pada tabel gudang
+          </li>
+          <li>
+            Tampilkan data yang harganya <b>bukan > 3000 </b>dan <b>< 30000</b>
+          <li>
+            Tampilkan data yang nama_barang-nya <b>tidak diawali dengan huruf S</b>
+          </li>
+          <li>
+            Tampilkan <b>2 baris teratas</b> pada tabel gudang
+          </li>
+          <li>
+            Tampilkan data dari tabel gudang yang <b>total_item-nya 5</b>, batasi hanya <b>1 baris pertama saja </b>
+          </li>
+        </ol>
+      </div>
+      <br><br>
+      <div class="pengumpulan">
+        Kumpulkan hasil proyekmu melalui link GDrive di bawah ini!
+        <li>
+          <a
+            class="btn btn-sm m-1 text-white"
+            style="background-color: #324468"
+            href="https://drive.google.com/drive/folders/1jCYcGxajRNLRH_kl0RKb3sOF3u7zboG-?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pengumpulan
+          </a>
+        </li>
+        <br><br>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© 2025 MissionQL | Laman pembelajaran basis data MySQL interaktif |  Maulidya Alfia Rohmah</p>
+        <div class="footer-links">
+          <a href="#carouselExampleIndicators">Beranda</a>
+          <a href="#materi">Belajar</a>
+          <a href="#game">Bermain</a>
+          <a href="#pengumpulan">Kumpulkan</a>
+        </div>
+      </div>
+    </footer>
 
     <!-- Combined Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
