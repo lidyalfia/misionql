@@ -223,7 +223,7 @@ const levels = [
       "Saya ingin membuat perintah untuk menampilkan data dari tabel siswa <b>yang bukan umur 17</b>.",
     layout: [
       ["SELECT", "*", "FROM", "siswa", "", ""],
-      ["WHERE", "umur", "NOT", "=", "'17'", ";"],
+      ["WHERE", "NOT", "umur", "=", "'17'", ";"],
     ],
     disabledCells: [
       [0, 4],
